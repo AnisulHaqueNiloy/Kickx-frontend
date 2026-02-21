@@ -1,2 +1,21 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap');
+
 @import "tailwindcss";
 @plugin "daisyui";
+
+
+
+
+.rubik-300 { font-family: 'Rubik', sans-serif; font-weight: 300; }
+.rubik-400 { font-family: 'Rubik', sans-serif; font-weight: 400; }
+.rubik-500 { font-family: 'Rubik', sans-serif; font-weight: 500; }
+.rubik-600 { font-family: 'Rubik', sans-serif; font-weight: 600; }
+.rubik-700 { font-family: 'Rubik', sans-serif; font-weight: 700; }
+
+.opens-300 { font-family: 'Open Sans', sans-serif; font-weight: 300; }
+.opens-400 { font-family: 'Open Sans', sans-serif; font-weight: 400; }
+.opens-500 { font-family: 'Open Sans', sans-serif; font-weight: 500; }
+.opens-600 { font-family: 'Open Sans', sans-serif; font-weight: 600; }
+.opens-700 { font-family: 'Open Sans', sans-serif; font-weight: 700; }

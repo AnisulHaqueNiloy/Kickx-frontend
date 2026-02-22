@@ -1,34 +1,22 @@
-
 import { useState } from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { ExternalLink } from "lucide-react";
 import { useGetCategoryQuery } from "../../Pages/LandingPage/features/categoryApi";
 import type { newDropsProps } from "../../types/requiredTypes";
 
-// type CategoryType = {
-//   id: number;
-//   title: string;
-//   img: string;
-// };
-
 const Category = () => {
+  const { data, isLoading, isError } = useGetCategoryQuery();
 
-  const {data,isLoading,} = useGetCategoryQuery()
-
- const categories:newDropsProps[] =data || [];
+  const categories: newDropsProps[] = data || [];
 
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
   const handleNext = () => {
-    setActiveIndex((prev) =>
-      prev + 2 >= categories.length ? 0 : prev + 2
-    );
+    setActiveIndex((prev) => (prev + 2 >= categories.length ? 0 : prev + 2));
   };
 
   const handlePrev = () => {
-    setActiveIndex((prev) =>
-      prev - 2 < 0 ? categories.length - 2 : prev - 2
-    );
+    setActiveIndex((prev) => (prev - 2 < 0 ? categories.length - 2 : prev - 2));
   };
 
   const visibleItems = categories.slice(activeIndex, activeIndex + 2);
@@ -70,12 +58,12 @@ const Category = () => {
               className={`
                 ${isFirstCard ? "rounded-tl-[64px]" : ""}
                 ${isOddDesktop ? "md:-mr-10" : ""}
-                ${isOddDesktop? "bg-[#F6F6F6]" : "bg-[#ECEEF0]"} transition-all duration-500
+                ${isOddDesktop ? "bg-[#F6F6F6]" : "bg-[#ECEEF0]"} transition-all duration-500
               `}
             >
               <div
                 className={`
-                  flex justify-center items-center h-[350px] md:h-[600px]
+                  flex justify-center w-full items-center aspect-[4/3] md:aspect-[16/9]
                   ${isFirstCard ? "rounded-tl-[64px]" : ""}
                 `}
               >
@@ -89,8 +77,8 @@ const Category = () => {
                 />
               </div>
 
-              <div className="p-3 md:p-8 flex items-center justify-between gap-4">
-                <h3 className="text-xl md:text-4xl font-semibold rubik-600 text-[#232321] leading-tight flex-1">
+              <div className="p-3 md:p-8 mx-6 md:mx-12 flex items-center justify-between gap-4">
+                <h3 className="text-xl md:text-4xl lg:ml-5 xl:ml-12 font-semibold rubik-600 text-[#232321] leading-tight flex-1">
                   {item.name}
                 </h3>
 

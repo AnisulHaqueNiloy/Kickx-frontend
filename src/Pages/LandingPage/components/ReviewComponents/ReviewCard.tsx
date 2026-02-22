@@ -5,7 +5,7 @@ export const ReviewCard = ({ review }: { review: ReviewProps }) => {
   return (
     <div className="bg-white rounded-[2rem] h-[400px] lg:h-125 cursor-pointer overflow-hidden shadow-sm transition-transform duration-300 hover:scale-[1.02] border border-gray-100">
       {/* Top Section: Info */}
-      <div className="md:p-8 p-4">
+      <div className="md:p-8 p-3">
         <div className="flex justify-between items-start ">
           <div>
             <h3 className="text-xl md:text-2xl rubik-600 font-semibold text-gray-900">{review.title}</h3>
@@ -19,7 +19,7 @@ export const ReviewCard = ({ review }: { review: ReviewProps }) => {
         </div>
 
         {/* Rating */}
-        <div className="flex items-center gap-1 mt-3">
+        <div className="flex items-center gap-1 md:-mt-0 -mt-2">
           {[...Array(5)].map((_, i) => (
             <Star key={i} size={16} fill="#FBBF24" color="#FBBF24" />
           ))}

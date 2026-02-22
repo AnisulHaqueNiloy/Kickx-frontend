@@ -1,7 +1,17 @@
+
 import NewDrops from "../../../../Components/Shared/NewDrops";
 import Banner from "./Banner";
 
+import type { newDropsProps } from "../../../../types/requiredTypes";
+import { useNewDrops } from "../../../../customHooks/useNewDrop";
+
 function HeroSection() {
+ const  product = useNewDrops().product;
+
+  console.log("New Drops Data:", product);
+
+  const p:newDropsProps[] = product || [];
+
   return (
     <div className="">
       <div className="flex justify-center ">
@@ -10,7 +20,7 @@ function HeroSection() {
         </h1>
       </div>
       <Banner/>
-      <NewDrops/>
+      <NewDrops products={p}/>
       
     </div>
   );

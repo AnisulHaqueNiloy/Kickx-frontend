@@ -31,7 +31,7 @@ function ReviewSection() {
       comment: "I highly recommend shopping from kicks",
       productImage:
         "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=600",
-    }, 
+    },
   
   ];
   const [showAll, setShowAll] = useState(false);
@@ -41,8 +41,7 @@ function ReviewSection() {
   useEffect(() => {
     const handleResize = () => {
      
-      setIsMobile(window.innerWidth < 765);
-      setIsMobile(window.innerWidth > 765)
+      setIsMobile(window.innerWidth < 700);
     };
 
     handleResize(); 

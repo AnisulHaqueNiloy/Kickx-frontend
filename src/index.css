@@ -19,3 +19,19 @@
 .opens-500 { font-family: 'Open Sans', sans-serif; font-weight: 500; }
 .opens-600 { font-family: 'Open Sans', sans-serif; font-weight: 600; }
 .opens-700 { font-family: 'Open Sans', sans-serif; font-weight: 700; }
+
+
+.custom-pagination .swiper-pagination-bullet {
+  width: 40px;           
+  height: 8px;           
+  border-radius: 10px;   
+  background: #C4C4C4;   
+  opacity: 1;             
+  transition: all 0.3s ease;
+}
+
+
+.custom-pagination .swiper-pagination-bullet-active {
+  width: 40px;           
+  background: #4A69E2;    
+}

@@ -4,7 +4,7 @@ import { FaFacebookF, FaInstagram, FaTwitter, FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="px-4 md:px-10  bg-[#EAE9E5] md:mt-32 mt-11 ">
+    <div className="px-4 md:px-10  bg-[#EAE9E5]  ">
       <footer className="w-full  ">
         {/* 1. Join Club Section (Blue Box) */}
         <div className="bg-[#4A69E2] md:rounded-tr-[48px] rounded-tr-3xl rounded-tl-3xl md:rounded-tl-[48px] p-8 md:p-16 flex flex-col md:flex-row justify-between items-center overflow-hidden relative">
@@ -15,21 +15,21 @@ const Footer = () => {
             <p className="text-[#E7E7E3] text-lg mb-8 opens-600 font-semibold">
               Sign up for free! Join the community.
             </p>
-            <div className="flex flex-row gap-2 w-full">
+            <div className="flex flex-row gap-2 lg:w-2/3 ">
               <input
                 type="email"
                 placeholder="Email address"
-                className="bg-transparent border border-white/40 text-[#E7E7E3] p-3 rounded-xl focus:outline-none "
+                className="bg-transparent border flex-grow w-0 min-w-0 border-white/40 text-[#E7E7E3] p-3 rounded-xl focus:outline-none "
               />
-              <button className="bg-[#232321] text-[10x] md:text-[14px] cursor-pointer rubik-500 text-white px-3 md:px-8 py-3 rounded-xl  uppercase hover:bg-black transition-all">
+              <button className="bg-[#232321] whitespace-nowrap flex-shrink-0 text-[10x] md:text-[14px] cursor-pointer w-fit rubik-500 text-white px-3 md:px-8 py-3 rounded-xl  uppercase hover:bg-black transition-all">
                 Submit
               </button>
             </div>
           </div>
 
           {/* Big KICKS Logo with Image Background */}
-          <div className="flex w-full md:justify-center">
-            <img src={rightimg} alt="KicksPlus Logo" className="w-40 h-40 md:w-60 md:h-60 object-contain" />
+          <div className="flex w-full md:w-1/2 md:justify-center -mt-18 mb-10 md:mb-0 md:-mt-0">
+            <img src={rightimg} alt="KicksPlus Logo" className="w-52 h-44  md:mb-24 lg:w-82 2xl:md:w-90 md:h-64  object-contain" />
           </div>
         </div>
 
@@ -128,6 +128,8 @@ const Footer = () => {
           </div>
         </div>
       </footer>
+
+      <p className="text-center py-3 open-400 text-lg">© All rights reserved</p>
     </div>
   );
 };

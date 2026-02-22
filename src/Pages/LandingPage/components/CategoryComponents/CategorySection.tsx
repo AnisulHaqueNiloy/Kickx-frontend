@@ -1,8 +1,11 @@
+import Category from "../../../../Components/Shared/Category"
 
 
 function CategorySection() {
   return (
-    <div>CategorySection</div>
+    <div className="w-full bg-black">
+      <Category />
+    </div>
   )
 }
 

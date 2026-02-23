@@ -1,5 +1,5 @@
 import  { useState } from 'react';
-import logo from '../../assets/Group.png';
+import logo from '../../../public/assets/Group.png';
 import { RiArrowDownSFill } from "react-icons/ri";
 import { IoSearchOutline } from 'react-icons/io5';
 import { FaUserLarge } from 'react-icons/fa6';

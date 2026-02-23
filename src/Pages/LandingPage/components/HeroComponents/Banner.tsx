@@ -1,6 +1,6 @@
-import banner from "../../../../assets/banner.jpg";
-import tip1 from "../../../../assets/tip1.jpg";
-import tip2 from "../../../../assets/tip2.jpg";
+import banner from "../../../../../public/assets/banner.jpg";
+import tip1 from "../../../../../public/assets/tip1.jpg";
+import tip2 from "../../../../../public/assets/tip2.jpg";
 
 import { useEffect } from "react";
 import AOS from "aos";

@@ -1,5 +1,5 @@
-import logo from "../../assets/logo.png";
-import rightimg from "../../assets/Group 1.png";
+import logo from "../../../public/assets/logo.png";
+import rightimg from "../../../public/assets/Group 1.png";
 import { FaFacebookF, FaInstagram, FaTwitter, FaTiktok } from "react-icons/fa";
 
 const Footer = () => {

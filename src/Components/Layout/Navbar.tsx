@@ -3,8 +3,11 @@ import logo from '../../assets/Group.png';
 import { RiArrowDownSFill } from "react-icons/ri";
 import { IoSearchOutline } from 'react-icons/io5';
 import { FaUserLarge } from 'react-icons/fa6';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const count = useSelector((state:any) => state?.cart.items.length);
 
   const navLinks = [
     { name: 'New Drops 🔥', href: '#' },
@@ -61,7 +64,8 @@ const Navbar = () => {
 
           <div className="relative cursor-pointer group">
             <div className="bg-orange-400 text-black text-sm opens-600 font-semibold rounded-full w-8 h-8 flex items-center justify-center group-hover:bg-orange-500 transition-all duration-300">
-              0
+              <Link to="/cart">
+              {count}</Link>
             </div>
           </div>
         </div>

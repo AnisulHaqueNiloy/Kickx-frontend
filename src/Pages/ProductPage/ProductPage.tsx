@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom"
 import NewDrops from "../../Components/Shared/NewDrops"
 import { useNewDrops } from "../../customHooks/useNewDrop"
 import { useGetProductDetailsQuery } from "../LandingPage/features/productDetailsApi"
-import CartPage from "../CartPage/CartPage"
+import ProductDetails from "./ProductDetails"
 
 
 function ProductPage() {
@@ -15,7 +15,7 @@ console.log("Product Details:", pro_details);
 
   return (
     <div>
-      <CartPage pro_details={pro_details} />
+      <ProductDetails pro_details={pro_details} />
       <NewDrops products={product}/>
     </div>
   )

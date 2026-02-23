@@ -1,73 +1,63 @@
-# React + TypeScript + Vite
+# 👟 Kicks - Premium Footwear E-commerce Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)](https://redux-toolkit.js.org/)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-Currently, two official plugins are available:
+**Kicks** is a high-performance, pixel-perfect e-commerce web application designed for sneaker enthusiasts. Built with a focus on modern UI/UX, scalable architecture, and seamless state management.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Live Demo
+[Explore Kicks Live →](https://jade-cactus-6d327a.netlify.app/)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack & Tools
 
-## Expanding the ESLint configuration
+* **Core:** React.js + TypeScript
+* **State Management:** Redux Toolkit (RTK)
+* **Data Fetching:** RTK Query (Caching, Mutations, and Automated Re-fetching)
+* **Styling:** Tailwind CSS (Custom configurations for brand identity)
+* **Animations:** AOS (Animate On Scroll) & Tailwind-based micro-interactions
+* **Icons:** Lucide React & React Icons
+* **Slider:** Swiper.js (Custom grid integration)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✨ Key Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* **Advanced Cart Management:** Fully functional cart with RTK state, calculating shipping, taxes, and real-time total updates.
+* **Smart Product Grid:** Adaptive layouts that switch from 2-column grids on desktop to 1-column, 2-row layouts on mobile.
+* **Seamless UX:** Clean, minimalist design with a "See All" review toggle and interactive category carousels.
+* **Performance First:** Used RTK Query for optimized API handling and efficient re-rendering.
+* **Mobile Optimized:** Fully responsive design with specific focus on mobile-first touch interactions.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📂 Project Structure
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+```text
+src/
+├── app/                # Redux store & Root reducer
+├── features/           # RTK Query API slices & State logic
+├── components/         # Atomic & Reusable UI components
+│   ├── ui/             # Reusable base components (Buttons, Inputs)
+│   ├── shared/         # Common layout parts (Navbar, Footer)
+│   └── review/         # Review & Category specific cards
+├── hooks/              # Custom TypeScript hooks
+├── pages/              # Page-level view components
+├── assets/             # Global styles and static assets
+└── utils/              # Formatting & helper functions
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚙️ Installation & Setup
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Follow these steps to get the project running on your local machine:
+
+1. **Clone the Repo:**
+   ```bash
+   git clone [https://github.com/your-username/kicks-ecommerce.git](https://github.com/your-username/kicks-ecommerce.git)
+
+2. **Install Dependencies:**
+   ```bash
+   npm install
+
+3. **Run Development Server:**
+   ```bash
+   npm run dev

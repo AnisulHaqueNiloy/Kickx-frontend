@@ -1,4 +1,3 @@
-
 import NewDrops from "../../../../Components/Shared/NewDrops";
 import Banner from "./Banner";
 
@@ -6,11 +5,12 @@ import type { newDropsProps } from "../../../../types/requiredTypes";
 import { useNewDrops } from "../../../../customHooks/useNewDrop";
 
 function HeroSection() {
- const  product = useNewDrops().product;
+  const product = useNewDrops().product;
 
-  console.log("New Drops Data:", product);
-
-  const p:newDropsProps[] = product || [];
+  const shoesProducts = product.filter(
+    (item) => item.category?.name === "Shoes",
+  );
+  const p: newDropsProps[] = shoesProducts || [];
 
   return (
     <div className="">
@@ -19,9 +19,8 @@ function HeroSection() {
           Do it <span className="text-[#4A69E2]">right</span>
         </h1>
       </div>
-      <Banner/>
-      <NewDrops products={p}/>
-      
+      <Banner />
+      <NewDrops products={p} />
     </div>
   );
 }

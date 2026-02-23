@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { ProductType } from "../../types/requiredTypes";
-import { useAppDispatch, useAppSelector } from "../../Redux/hooks";
+import { useAppDispatch } from "../../Redux/hooks";
 import { addToCart } from "../CartPage/fetaures/cartSlice";
 
 import { CiHeart } from "react-icons/ci";
@@ -17,9 +17,6 @@ export default function ProductDetails({
 
   const dispatch = useAppDispatch();
 
-  const selector = useAppSelector((state) => state?.cart.items);
-  console.log("Cart Items:", selector);
-
   const handleAddToCart = () => {
     dispatch(
       addToCart({
@@ -35,9 +32,6 @@ export default function ProductDetails({
       duration: 3000,
     });
   };
-
-
- 
 
   const colors = ["black", "#707E6E"];
   const sizes = [38, 39, 40, 41, 42, 43, 44, 45, 46, 47];

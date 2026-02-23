@@ -48,47 +48,55 @@ const Category = () => {
 
       {/* Carousel */}
       <div className="grid grid-cols-1 md:grid-cols-2 transition-all duration-500 md:py-0 py-6">
-        {visibleItems?.map((item, index) => {
-          const isFirstCard = index === 0;
-          const isOddDesktop = index % 2 !== 0;
+       {isLoading ? (
+          <div className="text-white flex justify-center items-center text-center w-full">
+            <span className="loading loading-spinner loading-xl"></span>
+          </div>
+        ) : isError ? (
+          <p className="text-white text-center w-full">Error loading categories</p>
+        ) : (
+          visibleItems?.map((item, index) => {
+            const isFirstCard = index === 0;
+            const isOddDesktop = index % 2 !== 0;
 
-          return (
-            <div
-              key={item.id}
-              className={`
-                ${isFirstCard ? "rounded-tl-[64px]" : ""}
-                ${isOddDesktop ? "md:-mr-10" : ""}
-                ${isOddDesktop ? "bg-[#F6F6F6]" : "bg-[#ECEEF0]"} transition-all duration-500
-              `}
-            >
+            return (
               <div
+                key={item.id}
                 className={`
-                  flex justify-center w-full items-center aspect-[4/3] md:aspect-[16/9]
                   ${isFirstCard ? "rounded-tl-[64px]" : ""}
+                  ${isOddDesktop ? "md:-mr-10" : ""}
+                  ${isOddDesktop ? "bg-[#F6F6F6]" : "bg-[#ECEEF0]"} transition-all duration-500
                 `}
               >
-                <img
-                  src={item.image}
+                <div
                   className={`
-                    object-contain h-full w-full bg-transparent
+                    flex justify-center w-full items-center aspect-[4/3] md:aspect-[16/9]
                     ${isFirstCard ? "rounded-tl-[64px]" : ""}
                   `}
-                  alt={item.name}
-                />
-              </div>
+                >
+                  <img
+                    src={item.image}
+                    className={`
+                      object-contain h-full w-full bg-transparent
+                      ${isFirstCard ? "rounded-tl-[64px]" : ""}
+                    `}
+                    alt={item.name}
+                  />
+                </div>
 
-              <div className="p-3 md:p-8 mx-6 md:mx-12 flex items-center justify-between gap-4">
-                <h3 className="text-xl md:text-4xl lg:ml-5 xl:ml-12 font-semibold rubik-600 text-[#232321] leading-tight flex-1">
-                  {item.name}
-                </h3>
+                <div className="p-3 md:p-8 mx-6 md:mx-12 flex items-center justify-between gap-4">
+                  <h3 className="text-xl md:text-4xl lg:ml-5 xl:ml-12 font-semibold rubik-600 text-[#232321] leading-tight flex-1">
+                    {item.name}
+                  </h3>
 
-                <button className="w-10 h-10 rounded-md bg-zinc-900 text-white flex items-center justify-center hover:bg-zinc-800 transition-colors">
-                  <ExternalLink className="w-5 h-5" />
-                </button>
+                  <button className="w-10 h-10 rounded-md bg-zinc-900 text-white flex items-center justify-center hover:bg-zinc-800 transition-colors">
+                    <ExternalLink className="w-5 h-5" />
+                  </button>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })
+        )}
       </div>
     </section>
   );

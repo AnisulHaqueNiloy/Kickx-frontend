@@ -1,15 +1,19 @@
 import "swiper/css/pagination";
 import "swiper/css/grid";
-import { Link, useLocation } from "react-router-dom";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Grid } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
+import { Link, useLocation } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Grid } from "swiper/modules";
+
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import type { newDropsProps } from "../../types/requiredTypes";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+// ✅ Import AOS
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const NewDrops = ({ products }: { products: newDropsProps[] }) => {
   const location = useLocation();
@@ -18,24 +22,40 @@ const NewDrops = ({ products }: { products: newDropsProps[] }) => {
 
   const isHomePage = location.pathname === "/";
 
+  // 🔥 Initialize AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,  
+      easing: "ease-out-cubic",
+      once: true,  
+      offset: 80,  
+    });
+  }, []);
+
   return (
     <section className="px-4 md:px-10 md:py-12 py-6 bg-[#EAE9E5]">
-      {/* routing based rendering */}
+      {/* Header */}
       <div className="flex flex-row justify-between items-center mb-8 gap-4">
         <div>
           {isHomePage ? (
-            <h2 className="text-2xl md:text-7xl rubik-600 font-semibold uppercase leading-tight text-[#232321]">
+            <h2
+              data-aos="fade-up"
+              className="text-2xl md:text-7xl rubik-600 font-semibold uppercase leading-tight text-[#232321]"
+            >
               Don't miss out <br /> New Drops
             </h2>
           ) : (
-            <h2 className="text-2xl md:text-7xl rubik-600 font-semibold uppercase leading-tight text-[#232321]">
+            <h2
+              data-aos="fade-up"
+              className="text-2xl md:text-7xl rubik-600 font-semibold uppercase leading-tight text-[#232321]"
+            >
               You may also like
             </h2>
           )}
         </div>
 
         {isHomePage ? (
-          <button className="bg-[#4A69E2] cursor-pointer text-white md:px-8 px-3 md:py-3 py-2 w-fit rubik-500 text-sm rounded-lg hover:scale-110 transition-transform font-bold uppercase hover:bg-blue-700 transition-all active:scale-95">
+          <button className="bg-[#4A69E2] cursor-pointer text-white md:px-8 px-3 md:py-3 py-2 w-fit rubik-500 text-sm rounded-lg hover:scale-110 transition-transform font-bold uppercase hover:bg-blue-700 active:scale-95">
             Shop Now
           </button>
         ) : (
@@ -53,13 +73,19 @@ const NewDrops = ({ products }: { products: newDropsProps[] }) => {
         )}
       </div>
 
+      {/* Home Page Grid */}
       {isHomePage ? (
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-          {products?.slice(0, 4).map((product) => (
-            <div key={product.id} className="flex flex-col">
+          {products?.slice(0, 4).map((product, index) => (
+            <div
+              key={product.id}
+              className="flex flex-col"
+              data-aos="fade-up"
+              data-aos-delay={index * 120} // stagger animation
+            >
               {/* Card Body */}
               <div className="bg-[#FAFAFA] rounded-[20px] md:rounded-[24px]  border-2 md:border-4 border-white aspect-square relative overflow-hidden group">
-                <span className="absolute top-0 left-0 rubik-600 font-semibold bg-[#4A69E2] text-white px-2 md:px-4 py-1 md:py-2 rounded-br-xl md:rounded-br-3xl text-xs  ">
+                <span className="absolute top-0 left-0 rubik-600 font-semibold bg-[#4A69E2] text-white px-2 md:px-4 py-1 md:py-2 rounded-br-xl md:rounded-br-3xl text-xs">
                   New
                 </span>
 
@@ -86,7 +112,7 @@ const NewDrops = ({ products }: { products: newDropsProps[] }) => {
           ))}
         </div>
       ) : (
-        //  Product Carousel (Swiper)
+        // Swiper Carousel
         <Swiper
           modules={[Navigation, Pagination, Grid]}
           spaceBetween={15}
@@ -96,7 +122,6 @@ const NewDrops = ({ products }: { products: newDropsProps[] }) => {
             fill: "row",
           }}
           onSlideChange={(swiper) => {
-            // Calculate active bullet 0-3
             setActiveIndex(swiper.realIndex % totalBullets);
           }}
           navigation={{
@@ -108,11 +133,15 @@ const NewDrops = ({ products }: { products: newDropsProps[] }) => {
           }}
           className="mySwiper"
         >
-          {products?.map((product) => (
+          {products?.map((product, index) => (
             <SwiperSlide key={product.id}>
-              <div className="flex flex-col">
+              <div
+                className="flex flex-col"
+                data-aos="fade-up"
+                data-aos-delay={index * 100} // stagger animation
+              >
                 <div className="bg-[#FAFAFA] rounded-[20px] md:rounded-[24px]  border-2 md:border-4 border-white aspect-square relative overflow-hidden group">
-                  <span className="absolute top-0 left-0 rubik-600 font-semibold bg-[#4A69E2] text-white px-2 md:px-4 py-1 md:py-2 rounded-br-xl md:rounded-br-3xl text-xs  ">
+                  <span className="absolute top-0 left-0 rubik-600 font-semibold bg-[#4A69E2] text-white px-2 md:px-4 py-1 md:py-2 rounded-br-xl md:rounded-br-3xl text-xs">
                     New
                   </span>
                   <img
@@ -136,7 +165,7 @@ const NewDrops = ({ products }: { products: newDropsProps[] }) => {
             </SwiperSlide>
           ))}
 
-          {/* carousel indicator with custom css */}
+          {/* Custom Pagination */}
           <div className="custom-pagination flex justify-center gap-2 mt-4">
             {Array.from({ length: totalBullets }).map((_, i) => (
               <span

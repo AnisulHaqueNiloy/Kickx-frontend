@@ -1,4 +1,4 @@
-import { ChevronDown, Heart, Trash2 } from "lucide-react";
+import {  Heart, Trash2 } from "lucide-react";
 import { useAppSelector } from "../../../Redux/hooks";
 
 const CartPage = () => {
@@ -11,7 +11,14 @@ const CartPage = () => {
   return sum + price * quantity;
 }, 0);
   return (
-    <div className="bg-[#E7E7E3]  px-4 md:px-15 pt-2 pb-6 font-sans ">
+   <>
+   {
+    cartItems.length === 0 ? (
+      <div className="flex justify-center items-center h-[50vh] py-8">
+        <h2 className="text-3xl font-bold text-center mt-20">Your cart is empty</h2>
+      </div>
+    ):(
+      <div className="bg-[#E7E7E3]  px-4 md:px-15 pt-2 pb-6 font-sans ">
       {/* Header */}
       <div className="mb-3 ">
         <h1 className="text-2xl md:text-[32px] font-semibold rubik-600 mb-2">
@@ -60,10 +67,10 @@ const CartPage = () => {
                         <h3 className="md:text-2xl text-[16px] font-semibold rubik-600 uppercase tracking-tight">
                           {item?.title}
                         </h3>
-                        <p className="text-gray-500 mt-1 opens-600 text-[16px] md:text-[18px] font-light">
+                        <p className="text-gray-500 mt-1 opens-600 text-[12px] md:text-[14px] font-light">
                           {item.description}
                         </p>
-                        <p className="text-gray-500 opens-600 text-[16px] md:text-[18px] font-light">
+                        <p className="text-gray-500 opens-600 text-[12px] md:text-[14px] font-light">
                           {item.description}
                         </p>
                       </div>
@@ -149,6 +156,8 @@ const CartPage = () => {
         </div>
       </div>
     </div>
+    )
+   }</> 
   );
 };
 

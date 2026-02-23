@@ -15,10 +15,10 @@ console.log("Product Details:", pro_details);
 
   return (
     <div>
-      <ProductDetails pro_details={pro_details} />
+      {pro_details && <ProductDetails pro_details={pro_details} />}
       <NewDrops products={product}/>
     </div>
-  )
+  ) 
 }
 
 export default ProductPage

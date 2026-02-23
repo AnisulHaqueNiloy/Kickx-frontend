@@ -49,7 +49,8 @@ const Navbar = () => {
         {/* Center: Logo */}
         <div className="absolute left-1/2 transform -translate-x-1/2">
         
-          <img src={logo} alt="Logo" className="md:w-32 w-20 md:h-8 h-5" />
+          <Link to="/">
+          <img src={logo} alt="Logo" className="md:w-32 w-20 md:h-8 h-5" /></Link>
         </div>
 
         {/* Right: Search, User, Cart */}
@@ -63,10 +64,10 @@ const Navbar = () => {
           </button>
 
           <div className="relative cursor-pointer group">
-            <div className="bg-orange-400 text-black text-sm opens-600 font-semibold rounded-full w-8 h-8 flex items-center justify-center group-hover:bg-orange-500 transition-all duration-300">
-              <Link to="/cart">
-              {count}</Link>
-            </div>
+            <Link to="/cart"><div className="bg-orange-400 text-black text-sm opens-600 font-semibold rounded-full w-8 h-8 flex items-center justify-center group-hover:bg-orange-500 transition-all duration-300">
+              
+              {count}
+            </div></Link>
           </div>
         </div>
       </div>

@@ -1,21 +1,26 @@
-export type ReviewProps ={
+export type ReviewProps = {
   name: string;
   avatar: string;
   rating: number;
   title: string;
   comment: string;
   productImage: string;
-}
+};
 
-export type newDropsProps ={
+export type newDropsProps = {
   id: number;
   title: string;
-  name?:string;
+  name?: string;
   price: number;
   image?: string;
   images?: string[];
-}
-
+  category: {
+    id: number;
+    name: string;
+    image: string;
+    slug: string;
+  };
+};
 
 export type CategoryType = {
   id: number;
